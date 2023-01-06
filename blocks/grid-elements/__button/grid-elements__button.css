@@ -1,0 +1,10 @@
+.grid-elements__button {
+    width: 23px;
+    height: 19px;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position: center;
+    }

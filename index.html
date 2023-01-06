@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesto</title>
+    <meta name="description" content="Mesto">
+    <meta name="keywords" content="Photo, Likes">
+    <meta name="author" content="Ekaterina Kosolapova">
+    <link rel="stylesheet" href="./pages/index.css">
+</head>
+<body class="page">
+    <header class="header">
+        <div class="header__logo"></div>
+    </header>
+<main class="content">
+    <section class="profile">
+        <div class="profile__text">
+            <div class="profile__avatar">
+                <img src="./images/avatar.jpg" 
+                alt="Аватарка" 
+                class="profile__image">
+            </div>
+            <div class="profile__info">
+                <h1 class="profile__name">Жак-Ив Кусто</h1>
+                <button class="profile__button profile__button_edit">
+                </button>
+                <p class="profile__caption">Исследователь океана</p>
+            </div>
+        </div>
+        <button class="profile__button profile__button_add"></button> 
+    </section>
+    <section class="grid-elements" aria-label="Фотографии с заголовками">
+        <div class="grid-elements__element">
+            <img src="./images/карачаевск.png" 
+            alt="Карачаевск, фото старинного здания" 
+            class="grid-elements__img">
+            <div class="grid-elements__text">
+                <p class="grid-elements__name">Карачаевск</p>
+                <button class="grid-elements__button grid-elements__button_like">
+                </button>
+            </div>
+        </div>
+        <div class="grid-elements__element">
+            <img src="./images/эльбрус.png" 
+            alt="Эльбрус, фото гор" 
+            class="grid-elements__img">
+            <div class="grid-elements__text">
+                <p class="grid-elements__name">Гора Эльбрус</p>
+                <button class="grid-elements__button grid-elements__button_like">
+                </button>
+            </div>
+        </div>
+        <div class="grid-elements__element">
+            <img src="./images/домбай.png" 
+            alt="Домбай, фото гор" class="grid-elements__img">
+            <div class="grid-elements__text">
+                <p class="grid-elements__name">Домбай</p>
+                <button class="grid-elements__button grid-elements__button_like">
+                </button>
+            </div>
+        </div>
+        <div class="grid-elements__element">
+            <img src="./images/Спб.jpg" 
+            alt="Санкт-Петербург, Казанский собор" 
+            class="grid-elements__img">
+            <div class="grid-elements__text">
+                <p class="grid-elements__name">Санкт-Петербург</p>
+                <button class="grid-elements__button grid-elements__button_like">
+                </button>
+            </div>
+        </div>
+        <div class="grid-elements__element">
+            <img src="./images/Владик.jpg" 
+            alt="Владивосток, мост Русский" 
+            class="grid-elements__img">
+            <div class="grid-elements__text">
+                <p class="grid-elements__name">Владивосток</p>
+                <button class="grid-elements__button grid-elements__button_like">
+                </button>
+            </div>
+        </div>
+        <div class="grid-elements__element">
+            <img src="./images/мурманск.jpg" 
+            alt="Мурманск, сопки" 
+            class="grid-elements__img">
+            <div class="grid-elements__text">
+                <p class="grid-elements__name">Мурманск</p>
+                <button class="grid-elements__button grid-elements__button_like">
+                </button>
+            </div>
+        </div>
+    </section>
+</main>
+<footer class="footer">
+    <div class="footer__copyright">© 2022 Mesto Russia</div>
+</footer>  
+<section class="popup">
+    <div class="popup__bg">
+        <div class="popup__container">
+            <a 
+            href="#" 
+            class="popup__toggle"></a>
+            <h2 class="popup__heading">Редактировать профиль</h2>
+            <form class="popup__form">
+                <input type="text" 
+                class="popup__item popup__item_name_name" 
+                placeholder="Имя" 
+                value="Жак-Ив Кусто">
+                <input type="text" 
+                class="popup__item popup__item_name_surname" 
+                placeholder="О себе" 
+                value="Исследователь океана">
+                <button 
+                type="submit" 
+                class="popup__button">Сохранить
+                </button>
+            </form>
+        </div>
+    </div>
+</section>  
+<script src="./scripts.js"></script>
+</body>
+</html>
