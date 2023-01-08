@@ -7,6 +7,9 @@
     background-color: #000;
     color: #FFFFFF;
     height: 50px;
+    font-size: 18px;
+    font-weight: 400;
+
 }
  
 .popup__button:hover {
@@ -16,6 +19,7 @@
   @media screen and (max-width: 530px) {
     .popup__button {
         width: 238px;
+        font-size: 14px;
     }
 
 }
