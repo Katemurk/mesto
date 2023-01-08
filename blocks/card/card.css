@@ -1,9 +1,10 @@
-.grid-elements__element {
+.card {
     margin: 0;
     padding: 0;
     max-width: 282px;
     height: 362px;
     background-color:#FFFFFF;
     border-radius: 10px;
-
+    list-style-type: none;
 }
+

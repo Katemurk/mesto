@@ -1,6 +1,8 @@
-.profile__button {
+.button {
     background: #000000;
-    border: 1px solid #FFFFFF;
+    border-style: solid;
+    border-color: #FFFFFF;
+    border-width: 1px;
     box-sizing: border-box;
     cursor: pointer;
     background-repeat: no-repeat;

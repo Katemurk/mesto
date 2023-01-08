@@ -4,9 +4,10 @@
     height: 32px;
     top: -42px;
     right: -38px;
-    cursor: pointer;
+    border: none;
     transition: opacity .4s;
     background-image: url(../../../images/Close\ Icon.png);
+    
 }
 
 .popup__toggle:hover {

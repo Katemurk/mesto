@@ -1,6 +1,7 @@
 .grid-elements__name {
     margin: 0;
-    padding: 22px 0 0 0;
+    padding: 0;
+    max-width: 215px;
     font-weight: 900;
     font-size: 24px;
     line-height: 29.05px;

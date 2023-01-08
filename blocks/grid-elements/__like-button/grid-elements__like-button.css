@@ -1,0 +1,16 @@
+.grid-elements__like-button {
+    width: 23px;
+    height: 19px;
+    background-color: #fff;
+    border: none;
+    background-image: url(../../../../images/like.svg);
+}
+
+.grid-elements__like-button:hover {
+    opacity: .5;
+}
+
+.grid-elements__like-button:active {
+    opacity: 1;
+    background-image: url(../../../../images/liked.svg);
+}

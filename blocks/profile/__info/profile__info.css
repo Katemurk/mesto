@@ -20,6 +20,8 @@
 
     @media screen and (max-width: 620px) {
         .profile__info {
-            padding-left: 28px;
-    }
+            padding-right: 30px;
+            padding-left: 55px;
+            
+}
 }
