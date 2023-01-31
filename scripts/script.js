@@ -24,7 +24,7 @@ const popupImg = document.querySelector('.popup__img');
 const popupImgName = document.querySelector('.popup__caption');
 const popupFormProfile = document.querySelector('.popup__form_type_profile');
 const popupFormCards = document.querySelector('.popup__form_type_cards');
-
+const cardTemplate = document.querySelector('.card-template').content;
 /* подгрузка карточки из массива*/
 
 function renderCards() {
@@ -35,15 +35,15 @@ renderCards();
 /* заготовка карточки */
 
 function getCard(item) {
-  const cardTemplate = document.querySelector('.card-template').content;
   const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
   const image = cardElement.querySelector('.card__img');
   const trashButton = cardElement.querySelector('.card__trash-button');
+  const likeButton = cardElement.querySelector('.card__like-button');
 
   cardElement.querySelector('.card__name').textContent = item.name;
   image.src = item.link;
   image.alt = item.name;
-  const likeButton = cardElement.querySelector('.card__like-button');
+
   likeButton.addEventListener('click', () => {
     likeButton.classList.toggle('card__like-button_active');
   })
