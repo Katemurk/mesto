@@ -5,13 +5,13 @@
   top: -42px;
   right: -38px;
   border: none;
-  transition: opacity .4s;
+  transition: opacity 0.4s;
   background-color: transparent;
   background-image: url(../../../images/Close\ Icon.png);
 }
 
 .popup__toggle:hover {
-  opacity: .5;
+  opacity: 0.5;
 }
 
 @media screen and (max-width: 530px) {

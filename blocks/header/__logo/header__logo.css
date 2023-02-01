@@ -8,7 +8,7 @@
 }
 
 @media screen and (max-width: 925px) {
-  .header__logo{
+  .header__logo {
     width: 103px;
     object-fit: cover;
     background-size: contain;
