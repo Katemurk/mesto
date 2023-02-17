@@ -1,5 +1,5 @@
 //валидация
-let selectors = {
+const selectors = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__button",
@@ -46,6 +46,13 @@ const setEventListeners = (selectors, formElement) => {
     selectors.submitButtonSelector
   );
   toggleButtonState(selectors, inputList, buttonElement);
+
+  formElement.addEventListener('reset', () => {
+    setTimeout(() => {
+      toggleButtonState(selectors, inputList, buttonElement);
+    }, 0);
+  });
+
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", () => {

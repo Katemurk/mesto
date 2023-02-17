@@ -21,8 +21,9 @@ const jobProfile = document.querySelector(".profile__caption");
 const cardList = document.querySelector(".grid-elements__list");
 const popupImg = document.querySelector(".popup__img");
 const popupImgName = document.querySelector(".popup__caption");
-const popupFormProfile = document.querySelector(".popup__form_type_profile");
-const popupFormCards = document.querySelector(".popup__form_type_cards");
+
+const profileForm = document.forms['profileForm'];
+const profileCard = document.forms['cardForm'];
 const cardTemplate = document.querySelector(".card-template").content;
 
 /* подгрузка карточки из массива*/
@@ -70,9 +71,8 @@ function createCard(item) {
 
 const openPopup = function (popup) {
   popup.classList.add("popup_opened");
-  document.addEventListener("keydown", closeForEsc);
-  document.addEventListener("click", closeForOut);
-  enableValidation(selectors);
+  document.addEventListener("keydown", handleEscape);
+  document.addEventListener("mousedown", handleOverlay);
 };
 
 popupOpenProfile.addEventListener("click", function () {
@@ -90,8 +90,8 @@ popupOpenCards.addEventListener("click", function () {
 
 const closePopup = function (popup) {
   popup.classList.remove("popup_opened");
-  document.removeEventListener("keydown", closeForEsc);
-  document.removeEventListener("click", closeForOut);
+  document.removeEventListener("keydown", handleEscape);
+  document.removeEventListener("mousedown", handleOverlay);
 };
 
 closeButtons.forEach((button) => {
@@ -102,7 +102,7 @@ closeButtons.forEach((button) => {
 });
 // закрытие по esc
 
-const closeForEsc = function (evt) {
+const handleEscape = function (evt) {
   if (evt.key === "Escape") {
     const openedPopup = document.querySelector(".popup_opened");
     closePopup(openedPopup);
@@ -110,22 +110,15 @@ const closeForEsc = function (evt) {
 };
 // закрытие по оверлею
 
-const closeForOut = function (evt) {
+const handleOverlay = function (evt) {
   if (evt.target.classList.contains("popup")) {
-    closePopup(evt.target);
-  }
-};
-
-// сейв через ентер
-const keyHandler = function (evt) {
-  if (evt.key === "Enter") {
     closePopup(evt.target);
   }
 };
 
 /* сабмит в попап профиля */
 
-popupFormProfile.addEventListener("submit", (evt) => {
+profileForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   nameProfile.textContent = nameInput.value;
   jobProfile.textContent = jobInput.value;
@@ -134,11 +127,11 @@ popupFormProfile.addEventListener("submit", (evt) => {
 
 /* сабмит в карточки изображений*/
 
-popupFormCards.addEventListener("submit", (evt) => {
+profileCard.addEventListener("submit", (evt) => {
   evt.preventDefault();
   const name = placeInput.value;
   const link = linkInput.value;
   createCard({ name, link });
   closePopup(popupCards);
-  evt.target.reset();
+  profileCard.reset();
 });
