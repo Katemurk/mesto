@@ -1,3 +1,15 @@
+import { FormValidator } from "./FormValidator.js";
+import { Card } from "./Card.js";
+import { initialCards } from "./initialCards.js";
+
+const selectors = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_inactive",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__input-error_type_visible",
+};
 // popups
 const popupProfile = document.querySelector(".popup_type_profile");
 const popupCards = document.querySelector(".popup_type_cards");
@@ -9,7 +21,6 @@ const closeButtons = document.querySelectorAll(".popup__toggle");
 // popups open button
 const popupOpenProfile = document.querySelector(".profile__edit-button");
 const popupOpenCards = document.querySelector(".profile__add-button");
-const popupOpenView = document.querySelector(".popup__img");
 
 /* */
 const nameInput = document.querySelector(".popup__input_type_name");
@@ -21,51 +32,29 @@ const jobProfile = document.querySelector(".profile__caption");
 const cardList = document.querySelector(".grid-elements__list");
 const popupImg = document.querySelector(".popup__img");
 const popupImgName = document.querySelector(".popup__caption");
+const profileForm = document.forms["profileForm"];
+const profileCard = document.forms["cardForm"];
 
-const profileForm = document.forms['profileForm'];
-const profileCard = document.forms['cardForm'];
-const cardTemplate = document.querySelector(".card-template").content;
+//общее создание карточки из конструктора класса /кард
+function createCard(item) {
+  const card = new Card(item, ".card-template", openPreview);
+  const cardElement = card.generateCard();
+  cardList.prepend(cardElement);
+}
 
-/* подгрузка карточки из массива*/
-
+//создание из массива объектов
 function renderCards() {
   initialCards.forEach(createCard);
 }
 renderCards();
 
-/* заготовка карточки */
-
-function getCard(item) {
-  const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
-  const image = cardElement.querySelector(".card__img");
-  const trashButton = cardElement.querySelector(".card__trash-button");
-  const likeButton = cardElement.querySelector(".card__like-button");
-  cardElement.querySelector(".card__name").textContent = item.name;
-  image.src = item.link;
-  image.alt = item.name;
-
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("card__like-button_active");
-  });
-
-  trashButton.addEventListener("click", () => {
-    cardElement.remove();
-  });
-
-  image.addEventListener("click", () => {
-    popupImg.src = item.link;
-    popupImgName.textContent = item.name;
-    popupImg.alt = item.name;
-    openPopup(popupView);
-  });
-  return cardElement;
-}
 /* пуш карточки на сайт*/
+// initialCards.forEach((item) => {
+// const card = new Card(item, '.card-template');
+// const cardElement = card.generateCard();
+// document.querySelector('.grid-elements__list').append(cardElement);
 
-function createCard(item) {
-  const cardElement = getCard(item);
-  cardList.prepend(cardElement);
-}
+// });
 
 //открытие попапов
 
@@ -75,6 +64,13 @@ const openPopup = function (popup) {
   document.addEventListener("mousedown", handleOverlay);
 };
 
+function openPreview(item) {
+  popupImg.alt = item.name;
+  popupImgName.textContent = item.name;
+  popupImg.src = item.link;
+  openPopup(popupView);
+}
+
 popupOpenProfile.addEventListener("click", function () {
   nameInput.value = nameProfile.textContent;
   jobInput.value = jobProfile.textContent;
@@ -83,7 +79,6 @@ popupOpenProfile.addEventListener("click", function () {
 
 popupOpenCards.addEventListener("click", function () {
   openPopup(popupCards);
-
 });
 
 //закрытие попапов
@@ -100,6 +95,7 @@ closeButtons.forEach((button) => {
     closePopup(popup);
   });
 });
+
 // закрытие по esc
 
 const handleEscape = function (evt) {
@@ -124,14 +120,22 @@ profileForm.addEventListener("submit", (evt) => {
   jobProfile.textContent = jobInput.value;
   closePopup(popupProfile);
 });
-
 /* сабмит в карточки изображений*/
-
 profileCard.addEventListener("submit", (evt) => {
   evt.preventDefault();
-  const name = placeInput.value;
-  const link = linkInput.value;
-  createCard({ name, link });
+  const newObj = {
+    name: placeInput.value,
+    link: linkInput.value,
+  };
+  createCard(newObj);
   closePopup(popupCards);
   profileCard.reset();
 });
+
+//валидация
+function getValid(formElement) {
+  const validation = new FormValidator(selectors, formElement);
+  return validation;
+}
+getValid(profileForm).enableValidation();
+getValid(profileCard).enableValidation();
