@@ -41,14 +41,6 @@ function renderInitialCards() {
 }
 renderInitialCards();
 
-/* пуш карточки на сайт*/
-// initialCards.forEach((item) => {
-// const card = new Card(item, '.card-template');
-// const cardElement = card.generateCard();
-// document.querySelector('.grid-elements__list').append(cardElement);
-
-// });
-
 //открытие попапов
 
 const openPopup = function (popup) {

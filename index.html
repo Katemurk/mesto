@@ -24,11 +24,11 @@
           />
           <div class="profile__info">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <button aria-label="button" class="button profile__edit-button"></button>
+            <button type="button" aria-label="Редактировать профиль" class="button profile__edit-button"></button>
             <p class="profile__caption">Исследователь океана</p>
           </div>
         </div>
-        <button aria-label="button" class="button profile__add-button"></button>
+        <button type="button" aria-label="Добавить фото" class="button profile__add-button"></button>
       </section>
       <section class="grid-elements">
         <ul
@@ -41,9 +41,9 @@
           <img src="#" alt="" class="card__img" />
           <div class="card__text">
             <h2 class="card__name"></h2>
-            <button aria-label="button" class="button card__like-button"></button>
+            <button type="button" aria-label="Кнопка лайка" class="button card__like-button"></button>
           </div>
-          <button aria-label="button" class="button card__trash-button"></button>
+          <button type="button" aria-label="Кнопка удаления" class="button card__trash-button"></button>
         </li>
       </template>
     </main>
@@ -52,7 +52,7 @@
     </footer>
     <section class="popup popup_type_profile">
       <div class="popup__container">
-        <button aria-label="reset" class="button popup__toggle"></button>
+        <button type="reset" aria-label="Кнопка закрытия" class="button popup__toggle"></button>
         <h2 class="popup__heading">Редактировать профиль</h2>
         <form
           novalidate
@@ -91,7 +91,7 @@
     </section>
     <section class="popup popup_type_cards">
       <div class="popup__container">
-        <button type="reset" class="button popup__toggle"></button>
+        <button type="reset" aria-label="Кнопка закрытия" class="button popup__toggle"></button>
         <h2 class="popup__heading">Новое место</h2>
         <form
           novalidate
@@ -129,7 +129,7 @@
       <div class="popup__content">
         <img class="popup__img" src="#" alt="#" />
         <p class="popup__caption"></p>
-        <button aria-label="reset" class="button popup__toggle"></button>
+        <button type="reset" aria-label="Кнопка закрытия" class="button popup__toggle"></button>
       </div>
     </section>
     <script src="./scripts/index.js" type="module"></script>
