@@ -36,7 +36,7 @@ export class Card {
     });
 
     this._like.addEventListener("click", () => {
-      this._getLike();
+      this._makeLike();
     });
 
     this._trash.addEventListener("click", () => {
@@ -44,10 +44,8 @@ export class Card {
     });
   }
   //отдельная функция на лайк
-  _getLike() {
-    this._element
-      .querySelector(".card__like-button")
-      .classList.toggle("card__like-button_active");
+  _makeLike() {
+    this._like.classList.toggle("card__like-button_active");
   }
 
   //отдельная функция на удаление

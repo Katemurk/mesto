@@ -1,11 +1,10 @@
 export class FormValidator {
-  constructor(selectors, formElement) {
-    this._formSelector = selectors.formSelector;
-    this._inputSelector = selectors.inputSelector;
-    this._submitButtonSelector = selectors.submitButtonSelector;
-    this._inactiveButtonClass = selectors.inactiveButtonClass;
-    this._inputErrorClass = selectors.inputErrorClass;
-    this._errorClass = selectors.errorClass;
+  constructor(validationConfig, formElement) {
+    this._inputSelector = validationConfig.inputSelector;
+    this._submitButtonSelector = validationConfig.submitButtonSelector;
+    this._inactiveButtonClass = validationConfig.inactiveButtonClass;
+    this._inputErrorClass = validationConfig.inputErrorClass;
+    this._errorClass = validationConfig.errorClass;
     this._formElement = formElement;
     this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
     this._buttonElement = this._formElement.querySelector(this._submitButtonSelector);
@@ -39,7 +38,7 @@ export class FormValidator {
   _toggleButtonState() {
     if (this._hasInvalidInput()) {
       this._buttonElement.disabled = true;
-      this.disableSubmitBtn();
+      // this._initResetListener();
       this._buttonElement.classList.add(this._inactiveButtonClass);
     } else {
       this._buttonElement.disabled = false;
@@ -55,6 +54,7 @@ export class FormValidator {
   //слушатели инпутов в формах
   _setEventListeners() {
     this._toggleButtonState();
+    this._initResetListener();
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
         this._isValid(inputElement);
@@ -63,7 +63,7 @@ export class FormValidator {
     });
   }
 //функция очищение поля
-disableSubmitBtn() {
+_initResetListener() {
     this._formElement.addEventListener("reset", () => {
       setTimeout(() => {
         this._toggleButtonState();
