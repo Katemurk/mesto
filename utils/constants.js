@@ -24,3 +24,30 @@ export const initialCards = [
     link: 'https://images.unsplash.com/photo-1580424917967-a8867a6e676e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'
   }
 ];
+
+export const validationConfig = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__button_inactive",
+  inputErrorClass: "popup__input_type_error",
+  errorClass: "popup__input-error_type_visible",
+};
+
+// popups
+
+export const popupProfile = document.querySelector(".popup_type_profile");
+export const popupCards = document.querySelector(".popup_type_cards");
+export const popupView = document.querySelector(".popup_type_view");
+
+// popups open button
+export const btnOpenProfile = document.querySelector(".profile__edit-button");
+export const btnOpenCards = document.querySelector(".profile__add-button");
+
+//* */
+export const cardList = document.querySelector(".grid-elements__list");
+export const profileForm = document.forms["profileForm"];
+export const cardForm = document.forms["cardForm"];
+export const cardsContainer = ".grid-elements";
+export const nameProfile = ".profile__name";
+export const jobProfile = ".profile__caption";
