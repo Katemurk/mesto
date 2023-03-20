@@ -1,3 +1,9 @@
+// export const thai = new URL("../images/cards/thailand.jpg", import.meta.url);
+// const japan = new URL("../images/cards/japan.jpg", import.meta.url);
+// const sri = new URL("../images/cards/sri.jpg", import.meta.url);
+// const korea = new URL("../images/cards/korea.jpg", import.meta.url);
+
+// const nepal = new URL("../images/cards/nepal.jpg", import.meta.url);
 export const initialCards = [
   {
     name: 'Индия',
