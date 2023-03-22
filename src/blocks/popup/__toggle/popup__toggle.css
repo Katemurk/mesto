@@ -7,7 +7,7 @@
   border: none;
   transition: opacity 0.4s;
   background-color: transparent;
-  background-image: url(../../../images/Close\ Icon.png);
+  background-image: url(../../../images/close-icon.png);
 }
 
 .popup__toggle:hover {
