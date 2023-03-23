@@ -36,7 +36,7 @@ export class Card {
     });
 
     this._like.addEventListener("click", () => {
-      this._makeLike();
+      this._toggleLike();
     });
 
     this._trash.addEventListener("click", () => {
@@ -44,7 +44,7 @@ export class Card {
     });
   }
   //отдельная функция на лайк
-  _makeLike() {
+  _toggleLike() {
     this._like.classList.toggle("card__like-button_active");
   }
 

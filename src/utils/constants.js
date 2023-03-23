@@ -1,9 +1,3 @@
-// export const thai = new URL("../images/cards/thailand.jpg", import.meta.url);
-// const japan = new URL("../images/cards/japan.jpg", import.meta.url);
-// const sri = new URL("../images/cards/sri.jpg", import.meta.url);
-// const korea = new URL("../images/cards/korea.jpg", import.meta.url);
-
-// const nepal = new URL("../images/cards/nepal.jpg", import.meta.url);
 export const initialCards = [
   {
     name: 'Индия',
@@ -51,9 +45,9 @@ export const btnOpenProfile = document.querySelector(".profile__edit-button");
 export const btnOpenCards = document.querySelector(".profile__add-button");
 
 //* */
-export const cardList = document.querySelector(".grid-elements__list");
 export const profileForm = document.forms["profileForm"];
 export const cardForm = document.forms["cardForm"];
-export const cardsContainer = ".grid-elements";
+export const formValidators = {profileForm, cardForm};
+export const cardsContainer = ".grid-elements__list";
 export const nameProfile = ".profile__name";
 export const jobProfile = ".profile__caption";
