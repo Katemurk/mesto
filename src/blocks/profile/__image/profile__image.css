@@ -10,3 +10,7 @@
     margin-right: 0;
   }
 }
+
+.profile__image:hover {
+  opacity: 0.2;
+}
