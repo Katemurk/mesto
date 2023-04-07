@@ -98,7 +98,6 @@ const cardSection = new Section(renderCard, cardsContainer);
 
 // инстанс попапа формы добавления картинок
 function submitAddCard({ name, link }) {
-  debugger;
   popupWithCard.renderLoading(true);
   api
     .setCard({ name: name, link: link })
