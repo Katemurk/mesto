@@ -103,6 +103,7 @@ function submitAddCard({ name, link }) {
     .setCard({ name: name, link: link })
     .then((item) => {
       cardSection.addItem(renderCard(item));
+      popupWithCard.close();
     })
     .catch((err) => console.log(err))
     .finally(() => {
@@ -120,6 +121,7 @@ function submitEditProfile(info) {
     .setUserInfo(info)
     .then((user) => {
       userInfo.setUserInfo({ hero: user.name, profession: user.about });
+      popupWithProfile.close()
     })
     .catch((err) => console.log(err))
     .finally(() => {
@@ -137,6 +139,7 @@ function submitAddAvatar({ link }) {
     .setAvatar(link)
     .then((url) => {
       userInfo.setAvatar(url.avatar);
+      popupWithAvatar.close()
     })
     .catch((err) => console.log(err))
     .finally(() => {
